@@ -350,7 +350,7 @@ function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
+          <span>{avgUserRatin.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
