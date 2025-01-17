@@ -124,7 +124,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     // setAvgRating((avgRating) => (avgRating + userRating) / 2);
   }
 
-  /*   useEffect(
+  useEffect(
     function () {
       async function getMovieDetails() {
         setIsLoading(true);
@@ -136,48 +136,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
         setIsLoading(false);
       }
       getMovieDetails();
-    },
-    [selectedId]
-  ); */
-
-  useEffect(
-    function () {
-      async function getMovieDetails() {
-        try {
-          setIsLoading(true);
-          const response = await fetch(
-            `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
-            {
-              headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-              },
-              mode: "cors",
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await res.json();
-
-          if (data.Response === "False") {
-            throw new Error(data.Error || "Failed to fetch movie data");
-          }
-
-          setMovie(data);
-        } catch (error) {
-          console.error("Failed to fetch movie:", error);
-          // You might want to add error state handling here
-        } finally {
-          setIsLoading(false);
-        }
-      }
-
-      if (selectedId) {
-        getMovieDetails();
-      }
     },
     [selectedId]
   );
