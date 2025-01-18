@@ -16,6 +16,12 @@
   box-sizing: border-box;
 }
 
+.box::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+  display: none;
+  scroll-behavior: smooth;
+}
+
 html {
   font-size: 62.5%;
 }
